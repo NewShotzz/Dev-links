@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/assets/bg-mobile.jpg);
+  --stroke-color: rgba(225, 225, 225, 0.5);
+  --surface-color: rgba(225, 225, 225, 0.3);
+  --surface-color-hover: rgba(0, 0, 0, 0.2);
+  --switch-bg-url: url(./assets/assets/moon-stars.svg);
+}
+
+/* .ligth é a tag  que vai ser usada para quando o site estiver em modo branco, as variaveis serão de modo escuro quando o site for alterado atraves do botão */
+
+.ligth {
+  --text-color: black;
+  --bg-url: url(./assets/assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.3);
+  --surface-color-hover: rgba(0, 0, 0, 0.2);
+  --switch-bg-url: url(./assets/assets/sun.svg);
+}
+
+body {
+  /*
+    body é meu corpo de sistema, a estrutura total do site
+
+  background-image: url(./assets/assets/bg-mobile.jpg) - busca pela imagem no caminho indicado como esta solicitado pelo comando url(./ aonde esta localizado em pasta com imagens do projeto dentro do vs code.)
+  background-repeat: no-repeat; - para a imagem não ficar repetindo.
+  background-position: top center - basicamente coloca a sua imagem por todos os lados que for solicitado, sendo pra diversas modalidades, imagens, textos, caixas para animações entre mais conteudos que podem serem posicionados.
+  background-size: cover - tamanho de tudo que eu for colocar 
+   "portanto background é o comando para mexer na imagem e as variações de comando são pra posicionar a imagem."
+  */
+
+  /*background: color image repeat position/size (variações para deixar meu codigo mais limpo, uma combinação boa para posicionar de forma facil a imagem texto ou o que for necessario*/
+
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+
+/* profile*/
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+  border-radius: 50%;
+  border: #705dae solid 2px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 25px;
+  color: var(--text-color);
+  padding: 8px;
+}
+
+/* switch é a parte que tem a caixa de botão, a parte que fica de fundo, switch button é o botão em si, ele pode mudar de noite para dia e vai da esquerda para direita */
+
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 2px solid #705dae;
+  border-radius: 50%;
+  position: absolute;
+  top: -4px;
+  left: 0;
+  z-index: 1;
+  transition: translateY(-50%);
+}
+
+/* parte branca do botão */
+
+.ligth #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* essa é a lista de caixas com links no corpo do site */
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.5ms;
+}
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/* logos que ficam na parte inferior da pagina, eles funcionam como botões*/
+
+#socila-links {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+  font-size: 24px;
+}
+
+#socila-links ul {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 16px;
+}
+
+#socila-links ul li a {
+  text-decoration: none;
+  border-radius: 50%;
+  padding: 16px;
+  border: solid #705dae;
+  background: transparent;
+  transition: 0.5s;
+  cursor: pointer;
+  box-shadow: #705dae;
+}
+
+#socila-links ul li a:active {
+  transform: scale(0) translateY(-30%);
+  opacity: 0;
+}
+
+/* footer é o roda pé da minha pagina */
+
+footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+}
